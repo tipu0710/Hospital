@@ -23,12 +23,13 @@ public class MainActivity extends AppCompatActivity {
         recyclDistrict = (RecyclerView) findViewById(R.id.district_list);
 
         recyclDistrict.setHasFixedSize(false);
-        mLayoutManager = new LinearLayoutManager(this);
+        mLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+        recyclDistrict.setLayoutManager(mLayoutManager);
 
         districtLists = new ArrayList<>();
         districtList = new DistrictList();
         districtLists = districtList.getDistrictList();
-        mDistrictAdapter = new DistrictAdapter(districtLists);
+        mDistrictAdapter = new DistrictAdapter(this,districtLists);
         recyclDistrict.setAdapter(mDistrictAdapter);
     }
 }
